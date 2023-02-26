@@ -4,22 +4,26 @@ import Signup from "../Components/Signup"
 function Home (){
 
     return (
-        <Container maxW='xl' centerContent>
+        <Container maxW='lg' centerContent>
             <Box 
                 d='flex'
                 justifyContent='center'
                 p='3'
                 w='100%'
-                bg='gray'
+                bg='black'
+                color='white'
                 m='40px 0 15px 0'
                 borderRadius='lg'
                 borderWidth='1px'
             >
-                <Text fontSize='2xl' fontFamily='roboto mono' textAlign='center'>Chat with your friends</Text>
+                <Text 
+                    fontSize='2xl' 
+                    fontFamily='roboto mono' 
+                    textAlign='center'>Chit Chat Adda</Text>
             </Box>  
             <Box 
-                color='black'
-                bg='gray'
+                color='white'
+                bg='black'
                 w='100%'
                 borderRadius='lg'
                 borderWidth='1px'
@@ -27,12 +31,14 @@ function Home (){
                 <Tabs variant='enclosed'>
                     <TabList mb='1em'>
                         <Tab  
+                            bg={'black'}
                             w='50%'
-                            fontSize='2xl'  
+                            fontSize='xl'  
                             fontFamily='roboto mono' >Login</Tab>
                         <Tab  
+                            bg={'black'}
                             w='50%'
-                            fontSize='2xl'  
+                            fontSize='xl'  
                             fontFamily='roboto mono' >Signup</Tab>
                     </TabList>
                     <TabPanels>
