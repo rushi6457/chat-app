@@ -6,20 +6,18 @@ import Mychats from "../Components/Mychats"
 import { useContext } from "react"
 
 function Chat (){
-    // const {user} = useContext()
-    // console.log(user);
+    const {user} = ChatState()
+    console.log(user);
     return (
-        <div style={{width:"100%"}}>
-          <SideDrawer/>
+        <div style={{width:'100%'}}>
+            
+          {user ? <SideDrawer user = {user} /> : null}
             <Box
-                d='flex'
-                justifyContent={'space-between'}
-                w='100%'
-                p='10px'
+                d="flex" justifyContent="space-between" w="100%" h="91.5vh" p="10px"
             >
-              <ChatBox/>
-              <Mychats/>
-            </Box>
+              {user ? <ChatBox/>: null}
+              {user ? <Mychats/>: null} 
+             </Box>
         </div>
     )
 }

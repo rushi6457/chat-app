@@ -6,12 +6,12 @@ const ChatContext = createContext()
 
 const ChatProvider = ({children}) =>{
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [user,setUser] = useState()
     useEffect(()=>{
-        const userInfo = JSON.parse(localStorage.getItem("user-info"))
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"))
         setUser(userInfo)
-
+        console.log(userInfo)
         if(!userInfo){
             // navigate("/")
             <Navigate to='/chat'/>
@@ -27,8 +27,7 @@ const ChatProvider = ({children}) =>{
 }
 
 export const ChatState= () =>{
-    return (
-        useContext(ChatContext)
-    )
+    return useContext(ChatContext)
+    
 }
 export default ChatProvider;

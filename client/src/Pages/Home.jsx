@@ -7,15 +7,15 @@ function Home (){
       const [user,setUser] = useState()
     const navigate  = useNavigate()
 
-    //   useEffect(()=>{
-    //     const userInfo = JSON.parse(localStorage.getItem("user-info"))
-    //     setUser(userInfo)
+      useEffect(()=>{
+        const userInfo = JSON.parse(localStorage.getItem("user-info"))
+      
 
-    //     if(userInfo){
-    //         navigate("/chat")
-    //     }
+        if(userInfo){
+            navigate("/chat")
+        }
         
-    // },[navigate])
+    },[navigate])
 
     return (
         <Container maxW='lg' centerContent>
