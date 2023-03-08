@@ -15,6 +15,7 @@ import {useNavigate} from "react-router-dom";
 import {useDisclosure} from "@chakra-ui/hooks"
 import axios from 'axios'
 import ChatLoading from "./ChatLoading" ;
+import UserList from "./UserList"
 
 const SideDrawer = ({user}) => {
     const navigate = useNavigate()
@@ -49,19 +50,25 @@ const SideDrawer = ({user}) => {
                     Authorization:`Bearer ${user.token}`
                 }
             }
-            const {data} = await axios.get(`api/user/search=${search}`,config);
+            const {data} = await axios.get(`http://localhost:5000/api/user/search=${search}`,config);
+            console.log(data)
             setLoading(false)
             setSearchResults(data)
         }
-        catch(e){
+        catch(error){
              toast({
                 title:"Something went wrong",
+                description: error.message,
                 status:"error",
                 duration:5000,
                 isClosable:true,
                 position:'top-left'
             })
         }
+    }
+
+    const accessChat = (id) =>{
+
     }
     return (
       <>
@@ -120,7 +127,13 @@ const SideDrawer = ({user}) => {
                 loading ? (
                     <ChatLoading/>
                 ):(
-                <span>results</span>
+                    searchResults?.map((el)=>(
+                        <UserList
+                        key = {user.id}
+                        user={user}
+                        handleFunction={()=>accessChat(user._id)}
+                        />
+                    ))
                 )
             }
           </DrawerBody>

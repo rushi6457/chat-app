@@ -58,6 +58,7 @@ const authUser = asyncHandler(async(req,res) =>{
 
 const allUsers = asyncHandler(async(req,res) =>{
     const keyword = req.query.search
+    console.log(keyword)
     ? {
         $or:[
             {name:{$regex:req.query.search, $options:"i"}},
